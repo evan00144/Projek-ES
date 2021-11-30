@@ -1722,7 +1722,7 @@ const Tab3: React.FC = () => {
       let riskTotal = 0;
       riskTotal = total / totalRules;
       console.log(total);
-
+    
 
       let max = 0;
       let flag = 0;
@@ -1733,6 +1733,9 @@ const Tab3: React.FC = () => {
           flag = i;
         }
       }
+      if(hasil[flag] === "Kecil"){
+         riskTotal = 1-riskTotal;
+         }
       setRisk(riskTotal);
       console.log(max);
       setDiagnosis(hasil[flag]);
