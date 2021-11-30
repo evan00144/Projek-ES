@@ -1855,7 +1855,8 @@ const Tab3: React.FC = () => {
             </IonRow>
           </IonGrid>
           <IonRow>
-            <IonCol>
+            {riskPoint != Infinity ?
+              <IonCol>
               <IonCard>
                 <IonCardContent className="ion-text-center">
                   <h2>Risk Percentage : {riskPoint}</h2>
@@ -1863,8 +1864,10 @@ const Tab3: React.FC = () => {
                 </IonCardContent>
               </IonCard>
             </IonCol>
-          </IonRow>``
-
+              :
+            null
+            }        
+          </IonRow>
         </IonGrid>
       </IonContent>
     </IonPage>
