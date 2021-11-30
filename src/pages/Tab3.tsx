@@ -83,11 +83,13 @@ const Tab3: React.FC = () => {
       muda = 1;
     } else if (usia > 45) {
       setUsiaMuda(0);
+      muda = 1;
     }
 
     //Usia Tua
     if (usia < 40) {
       setUsiaTua(0);
+      tua = 1;
     } else if (usia >= 40 && usia <= 60) {
       setUsiaTua((usia - 40) / 20);
       tua = 1;
@@ -105,11 +107,13 @@ const Tab3: React.FC = () => {
       bpnormal = 1;
     } else if (bp > 180) {
       setBpNormal(0);
+      bpnormal = 1;
     }
 
     //BP Tinggi
     if (bp < 130) {
       setBpTinggi(0);
+      bptinggi = 1;
     } else if (bp >= 130 && bp <= 210) {
       setBpTinggi((bp - 130) / 80);
       bptinggi = 1;
@@ -127,11 +131,13 @@ const Tab3: React.FC = () => {
       gdnormal = 1;
     } else if (gd > 110) {
       setGdNormal(0);
+      gdnormal = 1;
     }
 
     //GD Tinggi
     if (gd < 100) {
       setGdTinggi(0);
+      gdtinggi = 1;
     } else if (gd >= 100 && gd <= 150) {
       setGdTinggi((gd - 100) / 50);
       gdtinggi = 1;
@@ -148,11 +154,13 @@ const Tab3: React.FC = () => {
       kolnormal = 1;
     } else if (chol > 160) {
       setCholNormal(0);
+      kolnormal = 1;
     }
 
     //Kolestrol Tinggi
     if (chol < 130) {
       setCholTinggi(0);
+      koltinggi = 1;
     } else if (chol >= 130 && chol <= 160) {
       setCholTinggi((chol - 130) / 30);
       koltinggi = 1;
@@ -175,21 +183,21 @@ const Tab3: React.FC = () => {
               //Diabetes Tidak
                 //Stress
                   if(muda == 1 && bpnormal == 1 && kolnormal == 1 && gdnormal == 1 && smoker == 0 && diabetes == 0 && stress == 0){
-                    rules[index] = Math.min(usiaMuda, bpNormal, cholNormal, gdNormal);
+                    rules[index] = Math.max(usiaMuda, bpNormal, cholNormal, gdNormal);
                     risk = 1-rules[index];
                     hasil[index] = "Kecil";
                     total += risk;
                     index++;
                   }
                   if(muda == 1 && bpnormal == 1 && kolnormal == 1 && gdnormal == 1 && smoker == 0 && diabetes == 0 && stress == 0.5){
-                    rules[index] = Math.min(usiaMuda, bpNormal, cholNormal, gdNormal);
+                    rules[index] = Math.max(usiaMuda, bpNormal, cholNormal, gdNormal);
                     risk = 1-rules[index];
                     hasil[index] = "Kecil";
                     total += risk;
                     index++;
                   }
                   if(muda == 1 && bpnormal == 1 && kolnormal == 1 && gdnormal == 1 && smoker == 0 && diabetes == 0 && stress == 1){
-                    rules[index] = Math.min(usiaMuda, bpNormal, cholNormal, gdNormal);
+                    rules[index] = Math.max(usiaMuda, bpNormal, cholNormal, gdNormal);
                     risk = 1-rules[index];
                     hasil[index] = "Kecil";
                     total += risk;
@@ -198,21 +206,21 @@ const Tab3: React.FC = () => {
               //Diabetes punya
                 //Stress
                 if(muda == 1 && bpnormal == 1 && kolnormal == 1 && gdnormal == 1 && smoker == 0 && diabetes == 1 && stress == 0){
-                  rules[index] = Math.min(usiaMuda, bpNormal, cholNormal, gdNormal);
+                  rules[index] = Math.max(usiaMuda, bpNormal, cholNormal, gdNormal);
                   risk = 1-rules[index];
                   hasil[index] = "Kecil";
                   total += risk;
                   index++;
                 }
                 if(muda == 1 && bpnormal == 1 && kolnormal == 1 && gdnormal == 1 && smoker == 0 && diabetes == 1 && stress == 0.5){
-                  rules[index] = Math.min(usiaMuda, bpNormal, cholNormal, gdNormal);
+                  rules[index] = Math.max(usiaMuda, bpNormal, cholNormal, gdNormal);
                   risk = 1-rules[index];
                   hasil[index] = "Kecil";
                   total += risk;
                   index++;
                 }
                 if(muda == 1 && bpnormal == 1 && kolnormal == 1 && gdnormal == 1 && smoker == 0 && diabetes == 1 && stress == 1){
-                  rules[index] = Math.min(usiaMuda, bpNormal, cholNormal, gdNormal);
+                  rules[index] = Math.max(usiaMuda, bpNormal, cholNormal, gdNormal);
                   risk = 1-rules[index];
                   hasil[index] = "Kecil";
                   total += risk;
@@ -222,21 +230,21 @@ const Tab3: React.FC = () => {
               //Diabetes Tidak
                 //Stress
                 if(muda == 1 && bpnormal == 1 && kolnormal == 1 && gdnormal == 1 && smoker == 1 && diabetes == 0 && stress == 0){
-                  rules[index] = Math.min(usiaMuda, bpNormal, cholNormal, gdNormal);
+                  rules[index] = Math.max(usiaMuda, bpNormal, cholNormal, gdNormal);
                   risk = 1-rules[index];
                   hasil[index] = "Kecil";
                   total += risk;
                   index++;
                 }
                 if(muda == 1 && bpnormal == 1 && kolnormal == 1 && gdnormal == 1 && smoker == 1 && diabetes == 0 && stress == 0.5){
-                  rules[index] = Math.min(usiaMuda, bpNormal, cholNormal, gdNormal);
+                  rules[index] = Math.max(usiaMuda, bpNormal, cholNormal, gdNormal);
                   risk = 1-rules[index];
                   hasil[index] = "Kecil";
                   total += risk;
                   index++;
                 }
                 if(muda == 1 && bpnormal == 1 && kolnormal == 1 && gdnormal == 1 && smoker == 1 && diabetes == 0 && stress == 1){
-                  rules[index] = Math.min(usiaMuda, bpNormal, cholNormal, gdNormal);
+                  rules[index] = Math.max(usiaMuda, bpNormal, cholNormal, gdNormal);
                   risk = 1-rules[index];
                   hasil[index] = "Kecil";
                   total += risk;
@@ -245,7 +253,7 @@ const Tab3: React.FC = () => {
             //Diabetes punya
               //Stress
               if(muda == 1 && bpnormal == 1 && kolnormal == 1 && gdnormal == 1 && smoker == 1 && diabetes == 1 && stress == 0){
-                rules[index] = Math.min(usiaMuda, bpNormal, cholNormal, gdNormal);
+                rules[index] = Math.max(usiaMuda, bpNormal, cholNormal, gdNormal);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
@@ -255,7 +263,6 @@ const Tab3: React.FC = () => {
                 rules[index] = Math.max(usiaMuda, bpNormal, cholNormal, gdNormal);
                 risk = rules[index];
                 hasil[index] = "Besar";
-                console.log("BESAR");
                 total += risk;
                 index++;
               }
@@ -263,7 +270,6 @@ const Tab3: React.FC = () => {
                 rules[index] = Math.max(usiaMuda, bpNormal, cholNormal, gdNormal);
                 risk = rules[index];
                 hasil[index] = "Besar";
-                console.log("BESAR");
                 total += risk;
                 index++;
               }
@@ -272,21 +278,21 @@ const Tab3: React.FC = () => {
               //Diabetes Tidak
                 //Stress
                 if(muda == 1 && bpnormal == 1 && kolnormal == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 0 && stress == 0){
-                  rules[index] = Math.min(usiaMuda, bpNormal, cholNormal, gdTinggi);
+                  rules[index] = Math.max(usiaMuda, bpNormal, cholNormal, gdTinggi);
                   risk = 1-rules[index];
                   hasil[index] = "Kecil";
                   total += risk;
                   index++;
                 }
                 if(muda == 1 && bpnormal == 1 && kolnormal == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 0 && stress == 0.5){
-                  rules[index] = Math.min(usiaMuda, bpNormal, cholNormal, gdTinggi);
+                  rules[index] = Math.max(usiaMuda, bpNormal, cholNormal, gdTinggi);
                   risk = 1-rules[index];
                   hasil[index] = "Kecil";
                   total += risk;
                   index++;
                 }
                 if(muda == 1 && bpnormal == 1 && kolnormal == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 0 && stress == 1){
-                  rules[index] = Math.min(usiaMuda, bpNormal, cholNormal, gdTinggi);
+                  rules[index] = Math.max(usiaMuda, bpNormal, cholNormal, gdTinggi);
                   risk = 1-rules[index];
                   hasil[index] = "Kecil";
                   total += risk;
@@ -295,21 +301,21 @@ const Tab3: React.FC = () => {
             //Diabetes punya
               //Stress
               if(muda == 1 && bpnormal == 1 && kolnormal == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 1 && stress == 0){
-                rules[index] = Math.min(usiaMuda, bpNormal, cholNormal, gdTinggi);
+                rules[index] = Math.max(usiaMuda, bpNormal, cholNormal, gdTinggi);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
                 index++;
               }
               if(muda == 1 && bpnormal == 1 && kolnormal == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 1 && stress == 0.5){
-                rules[index] = Math.min(usiaMuda, bpNormal, cholNormal, gdTinggi);
+                rules[index] = Math.max(usiaMuda, bpNormal, cholNormal, gdTinggi);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
                 index++;
               }
               if(muda == 1 && bpnormal == 1 && kolnormal == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 1 && stress == 1){
-                rules[index] = Math.min(usiaMuda, bpNormal, cholNormal, gdTinggi);
+                rules[index] = Math.max(usiaMuda, bpNormal, cholNormal, gdTinggi);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
@@ -319,21 +325,21 @@ const Tab3: React.FC = () => {
             //Diabetes Tidak
               //Stress
               if(muda == 1 && bpnormal == 1 && kolnormal == 1 && gdtinggi == 1 && smoker == 1 && diabetes == 0 && stress == 0){
-                rules[index] = Math.min(usiaMuda, bpNormal, cholNormal, gdTinggi);
+                rules[index] = Math.max(usiaMuda, bpNormal, cholNormal, gdTinggi);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
                 index++;
               }
               if(muda == 1 && bpnormal == 1 && kolnormal == 1 && gdtinggi == 1 && smoker == 1 && diabetes == 0 && stress == 0.5){
-                rules[index] = Math.min(usiaMuda, bpNormal, cholNormal, gdTinggi);
+                rules[index] = Math.max(usiaMuda, bpNormal, cholNormal, gdTinggi);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
                 index++;
               }
               if(muda == 1 && bpnormal == 1 && kolnormal == 1 && gdtinggi == 1 && smoker == 1 && diabetes == 0 && stress == 1){
-                rules[index] = Math.min(usiaMuda, bpNormal, cholNormal, gdTinggi);
+                rules[index] = Math.max(usiaMuda, bpNormal, cholNormal, gdTinggi);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
@@ -342,7 +348,7 @@ const Tab3: React.FC = () => {
           //Diabetes punya
             //Stress
             if(muda == 1 && bpnormal == 1 && kolnormal == 1 && gdtinggi == 1 && smoker == 1 && diabetes == 1 && stress == 0){
-              rules[index] = Math.min(usiaMuda, bpNormal, cholNormal, gdTinggi);
+              rules[index] = Math.max(usiaMuda, bpNormal, cholNormal, gdTinggi);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
@@ -351,16 +357,14 @@ const Tab3: React.FC = () => {
             if(muda == 1 && bpnormal == 1 && kolnormal == 1 && gdtinggi == 1 && smoker == 1 && diabetes == 1 && stress == 0.5){
               rules[index] = Math.max(usiaMuda, bpNormal, cholNormal, gdTinggi);
               risk = rules[index];
-              hasil[index] = "Besar";
-              console.log("BESAR");
+              hasil[index] = "Besar"
               total += risk;
               index++;
             }
             if(muda == 1 && bpnormal == 1 && kolnormal == 1 && gdtinggi == 1 && smoker == 1 && diabetes == 1 && stress == 1){
               rules[index] = Math.max(usiaMuda, bpNormal, cholNormal, gdTinggi);
               risk = rules[index];
-              hasil[index] = "Besar";
-              console.log("BESAR");
+              hasil[index] = "Besar"
               total += risk;
               index++;
             }
@@ -370,21 +374,21 @@ const Tab3: React.FC = () => {
               //Diabetes Tidak
                 //Stress
                 if(muda == 1 && bpnormal == 1 && koltinggi == 1 && gdnormal == 1 && smoker == 0 && diabetes == 0 && stress == 0){
-                  rules[index] = Math.min(usiaMuda, bpNormal, cholTinggi, gdNormal);
+                  rules[index] = Math.max(usiaMuda, bpNormal, cholTinggi, gdNormal);
                   risk = 1-rules[index];
                   hasil[index] = "Kecil";
                   total += risk;
                   index++;
                 }
                 if(muda == 1 && bpnormal == 1 && koltinggi == 1 && gdnormal == 1 && smoker == 0 && diabetes == 0 && stress == 0.5){
-                  rules[index] = Math.min(usiaMuda, bpNormal, cholTinggi, gdNormal);
+                  rules[index] = Math.max(usiaMuda, bpNormal, cholTinggi, gdNormal);
                   risk = 1-rules[index];
                   hasil[index] = "Kecil";
                   total += risk;
                   index++;
                 }
                 if(muda == 1 && bpnormal == 1 && koltinggi == 1 && gdnormal == 1 && smoker == 0 && diabetes == 0 && stress == 1){
-                  rules[index] = Math.min(usiaMuda, bpNormal, cholTinggi, gdNormal);
+                  rules[index] = Math.max(usiaMuda, bpNormal, cholTinggi, gdNormal);
                   risk = 1-rules[index];
                   hasil[index] = "Kecil";
                   total += risk;
@@ -393,21 +397,21 @@ const Tab3: React.FC = () => {
             //Diabetes punya
               //Stress
               if(muda == 1 && bpnormal == 1 && koltinggi == 1 && gdnormal == 1 && smoker == 0 && diabetes == 1 && stress == 0){
-                rules[index] = Math.min(usiaMuda, bpNormal, cholTinggi, gdNormal);
+                rules[index] = Math.max(usiaMuda, bpNormal, cholTinggi, gdNormal);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
                 index++;
               }
               if(muda == 1 && bpnormal == 1 && koltinggi == 1 && gdnormal == 1 && smoker == 0 && diabetes == 1 && stress == 0.5){
-                rules[index] = Math.min(usiaMuda, bpNormal, cholTinggi, gdNormal);
+                rules[index] = Math.max(usiaMuda, bpNormal, cholTinggi, gdNormal);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
                 index++;
               }
               if(muda == 1 && bpnormal == 1 && koltinggi == 1 && gdnormal == 1 && smoker == 0 && diabetes == 1 && stress == 1){
-                rules[index] = Math.min(usiaMuda, bpNormal, cholTinggi, gdNormal);
+                rules[index] = Math.max(usiaMuda, bpNormal, cholTinggi, gdNormal);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
@@ -417,21 +421,21 @@ const Tab3: React.FC = () => {
             //Diabetes Tidak
               //Stress
               if(muda == 1 && bpnormal == 1 && koltinggi == 1 && gdnormal == 1 && smoker == 1 && diabetes == 0 && stress == 0){
-                rules[index] = Math.min(usiaMuda, bpNormal, cholTinggi, gdNormal);
+                rules[index] = Math.max(usiaMuda, bpNormal, cholTinggi, gdNormal);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
                 index++;
               }
               if(muda == 1 && bpnormal == 1 && koltinggi == 1 && gdnormal == 1 && smoker == 1 && diabetes == 0 && stress == 0.5){
-                rules[index] = Math.min(usiaMuda, bpNormal, cholTinggi, gdNormal);
+                rules[index] = Math.max(usiaMuda, bpNormal, cholTinggi, gdNormal);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
                 index++;
               }
               if(muda == 1 && bpnormal == 1 && koltinggi == 1 && gdnormal == 1 && smoker == 1 && diabetes == 0 && stress == 1){
-                rules[index] = Math.min(usiaMuda, bpNormal, cholTinggi, gdNormal);
+                rules[index] = Math.max(usiaMuda, bpNormal, cholTinggi, gdNormal);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
@@ -440,7 +444,7 @@ const Tab3: React.FC = () => {
           //Diabetes punya
             //Stress
             if(muda == 1 && bpnormal == 1 && koltinggi == 1 && gdnormal == 1 && smoker == 1 && diabetes == 1 && stress == 0){
-              rules[index] = Math.min(usiaMuda, bpNormal, cholTinggi, gdNormal);
+              rules[index] = Math.max(usiaMuda, bpNormal, cholTinggi, gdNormal);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
@@ -465,21 +469,21 @@ const Tab3: React.FC = () => {
             //Diabetes Tidak
               //Stress
               if(muda == 1 && bpnormal == 1 && koltinggi == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 0 && stress == 0){
-                rules[index] = Math.min(usiaMuda, bpNormal, cholTinggi, gdTinggi);
+                rules[index] = Math.max(usiaMuda, bpNormal, cholTinggi, gdTinggi);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
                 index++;
               }
               if(muda == 1 && bpnormal == 1 && koltinggi == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 0 && stress == 0.5){
-                rules[index] = Math.min(usiaMuda, bpNormal, cholTinggi, gdTinggi);
+                rules[index] = Math.max(usiaMuda, bpNormal, cholTinggi, gdTinggi);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
                 index++;
               }
               if(muda == 1 && bpnormal == 1 && koltinggi == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 0 && stress == 1){
-                rules[index] = Math.min(usiaMuda, bpNormal, cholTinggi, gdTinggi);
+                rules[index] = Math.max(usiaMuda, bpNormal, cholTinggi, gdTinggi);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
@@ -488,21 +492,21 @@ const Tab3: React.FC = () => {
           //Diabetes punya
             //Stress
             if(muda == 1 && bpnormal == 1 && koltinggi == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 1 && stress == 0){
-              rules[index] = Math.min(usiaMuda, bpNormal, cholTinggi, gdTinggi);
+              rules[index] = Math.max(usiaMuda, bpNormal, cholTinggi, gdTinggi);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
               index++;
             }
             if(muda == 1 && bpnormal == 1 && koltinggi == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 1 && stress == 0.5){
-              rules[index] = Math.min(usiaMuda, bpNormal, cholTinggi, gdTinggi);
+              rules[index] = Math.max(usiaMuda, bpNormal, cholTinggi, gdTinggi);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
               index++;
             }
             if(muda == 1 && bpnormal == 1 && koltinggi == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 1 && stress == 1){
-              rules[index] = Math.min(usiaMuda, bpNormal, cholTinggi, gdTinggi);
+              rules[index] = Math.max(usiaMuda, bpNormal, cholTinggi, gdTinggi);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
@@ -512,21 +516,21 @@ const Tab3: React.FC = () => {
           //Diabetes Tidak
             //Stress
             if(muda == 1 && bpnormal == 1 && koltinggi == 1 && gdtinggi == 1 && smoker == 1 && diabetes == 0 && stress == 0){
-              rules[index] = Math.min(usiaMuda, bpNormal, cholTinggi, gdTinggi);
+              rules[index] = Math.max(usiaMuda, bpNormal, cholTinggi, gdTinggi);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
               index++;
             }
             if(muda == 1 && bpnormal == 1 && koltinggi == 1 && gdtinggi == 1 && smoker == 1 && diabetes == 0 && stress == 0.5){
-              rules[index] = Math.min(usiaMuda, bpNormal, cholTinggi, gdTinggi);
+              rules[index] = Math.max(usiaMuda, bpNormal, cholTinggi, gdTinggi);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
               index++;
             }
             if(muda == 1 && bpnormal == 1 && koltinggi == 1 && gdtinggi == 1 && smoker == 1 && diabetes == 0 && stress == 1){
-              rules[index] = Math.min(usiaMuda, bpNormal, cholTinggi, gdTinggi);
+              rules[index] = Math.max(usiaMuda, bpNormal, cholTinggi, gdTinggi);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
@@ -535,7 +539,7 @@ const Tab3: React.FC = () => {
         //Diabetes punya
           //Stress
           if(muda == 1 && bpnormal == 1 && koltinggi == 1 && gdtinggi == 1 && smoker == 1 && diabetes == 1 && stress == 0){
-            rules[index] = Math.min(usiaMuda, bpNormal, cholTinggi, gdTinggi);
+            rules[index] = Math.max(usiaMuda, bpNormal, cholTinggi, gdTinggi);
             risk = 1-rules[index];
             hasil[index] = "Kecil";
             total += risk;
@@ -562,21 +566,21 @@ const Tab3: React.FC = () => {
               //Diabetes Tidak
                 //Stress
                   if(muda == 1 && bptinggi == 1 && kolnormal == 1 && gdnormal == 1 && smoker == 0 && diabetes == 0 && stress == 0){
-                    rules[index] = Math.min(usiaMuda, bpTinggi, cholNormal, gdNormal);
+                    rules[index] = Math.max(usiaMuda, bpTinggi, cholNormal, gdNormal);
                     risk = 1-rules[index];
                     hasil[index] = "Kecil";
                     total += risk;
                     index++;
                   }
                   if(muda == 1 && bptinggi == 1 && kolnormal == 1 && gdnormal == 1 && smoker == 0 && diabetes == 0 && stress == 0.5){
-                    rules[index] = Math.min(usiaMuda, bpTinggi, cholNormal, gdNormal);
+                    rules[index] = Math.max(usiaMuda, bpTinggi, cholNormal, gdNormal);
                     risk = 1-rules[index];
                     hasil[index] = "Kecil";
                     total += risk;
                     index++;
                   }
                   if(muda == 1 && bptinggi == 1 && kolnormal == 1 && gdnormal == 1 && smoker == 0 && diabetes == 0 && stress == 1){
-                    rules[index] = Math.min(usiaMuda, bpTinggi, cholNormal, gdNormal);
+                    rules[index] = Math.max(usiaMuda, bpTinggi, cholNormal, gdNormal);
                     risk = 1-rules[index];
                     hasil[index] = "Kecil";
                     total += risk;
@@ -585,21 +589,21 @@ const Tab3: React.FC = () => {
               //Diabetes punya
                 //Stress
                 if(muda == 1 && bptinggi == 1 && kolnormal == 1 && gdnormal == 1 && smoker == 0 && diabetes == 1 && stress == 0){
-                  rules[index] = Math.min(usiaMuda, bpTinggi, cholNormal, gdNormal);
+                  rules[index] = Math.max(usiaMuda, bpTinggi, cholNormal, gdNormal);
                   risk = 1-rules[index];
                   hasil[index] = "Kecil";
                   total += risk;
                   index++;
                 }
                 if(muda == 1 && bptinggi == 1 && kolnormal == 1 && gdnormal == 1 && smoker == 0 && diabetes == 1 && stress == 0.5){
-                  rules[index] = Math.min(usiaMuda, bpTinggi, cholNormal, gdNormal);
+                  rules[index] = Math.max(usiaMuda, bpTinggi, cholNormal, gdNormal);
                   risk = 1-rules[index];
                   hasil[index] = "Kecil";
                   total += risk;
                   index++;
                 }
                 if(muda == 1 && bptinggi == 1 && kolnormal == 1 && gdnormal == 1 && smoker == 0 && diabetes == 1 && stress == 1){
-                  rules[index] = Math.min(usiaMuda, bpTinggi, cholNormal, gdNormal);
+                  rules[index] = Math.max(usiaMuda, bpTinggi, cholNormal, gdNormal);
                   risk = 1-rules[index];
                   hasil[index] = "Kecil";
                   total += risk;
@@ -609,21 +613,21 @@ const Tab3: React.FC = () => {
               //Diabetes Tidak
                 //Stress
                 if(muda == 1 && bptinggi == 1 && kolnormal == 1 && gdnormal == 1 && smoker == 1 && diabetes == 0 && stress == 0){
-                  rules[index] = Math.min(usiaMuda, bpTinggi, cholNormal, gdNormal);
+                  rules[index] = Math.max(usiaMuda, bpTinggi, cholNormal, gdNormal);
                   risk = 1-rules[index];
                   hasil[index] = "Kecil";
                   total += risk;
                   index++;
                 }
                 if(muda == 1 && bptinggi == 1 && kolnormal == 1 && gdnormal == 1 && smoker == 1 && diabetes == 0 && stress == 0.5){
-                  rules[index] = Math.min(usiaMuda, bpTinggi, cholNormal, gdNormal);
+                  rules[index] = Math.max(usiaMuda, bpTinggi, cholNormal, gdNormal);
                   risk = 1-rules[index];
                   hasil[index] = "Kecil";
                   total += risk;
                   index++;
                 }
                 if(muda == 1 && bptinggi == 1 && kolnormal == 1 && gdnormal == 1 && smoker == 1 && diabetes == 0 && stress == 1){
-                  rules[index] = Math.min(usiaMuda, bpTinggi, cholNormal, gdNormal);
+                  rules[index] = Math.max(usiaMuda, bpTinggi, cholNormal, gdNormal);
                   risk = 1-rules[index];
                   hasil[index] = "Kecil";
                   total += risk;
@@ -632,7 +636,7 @@ const Tab3: React.FC = () => {
             //Diabetes punya
               //Stress
               if(muda == 1 && bptinggi == 1 && kolnormal == 1 && gdnormal == 1 && smoker == 1 && diabetes == 1 && stress == 0){
-                rules[index] = Math.min(usiaMuda, bpTinggi, cholNormal, gdNormal);
+                rules[index] = Math.max(usiaMuda, bpTinggi, cholNormal, gdNormal);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
@@ -657,21 +661,21 @@ const Tab3: React.FC = () => {
               //Diabetes Tidak
                 //Stress
                 if(muda == 1 && bptinggi == 1 && kolnormal == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 0 && stress == 0){
-                  rules[index] = Math.min(usiaMuda, bpTinggi, cholNormal, gdTinggi);
+                  rules[index] = Math.max(usiaMuda, bpTinggi, cholNormal, gdTinggi);
                   risk = 1-rules[index];
                   hasil[index] = "Kecil";
                   total += risk;
                   index++;
                 }
                 if(muda == 1 && bptinggi == 1 && kolnormal == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 0 && stress == 0.5){
-                  rules[index] = Math.min(usiaMuda, bpTinggi, cholNormal, gdTinggi);
+                  rules[index] = Math.max(usiaMuda, bpTinggi, cholNormal, gdTinggi);
                   risk = 1-rules[index];
                   hasil[index] = "Kecil";
                   total += risk;
                   index++;
                 }
                 if(muda == 1 && bptinggi == 1 && kolnormal == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 0 && stress == 1){
-                  rules[index] = Math.min(usiaMuda, bpTinggi, cholNormal, gdTinggi);
+                  rules[index] = Math.max(usiaMuda, bpTinggi, cholNormal, gdTinggi);
                   risk = 1-rules[index];
                   hasil[index] = "Kecil";
                   total += risk;
@@ -680,21 +684,21 @@ const Tab3: React.FC = () => {
             //Diabetes punya
               //Stress
               if(muda == 1 && bptinggi == 1 && kolnormal == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 1 && stress == 0){
-                rules[index] = Math.min(usiaMuda, bpTinggi, cholNormal, gdTinggi);
+                rules[index] = Math.max(usiaMuda, bpTinggi, cholNormal, gdTinggi);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
                 index++;
               }
               if(muda == 1 && bptinggi == 1 && kolnormal == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 1 && stress == 0.5){
-                rules[index] = Math.min(usiaMuda, bpTinggi, cholNormal, gdTinggi);
+                rules[index] = Math.max(usiaMuda, bpTinggi, cholNormal, gdTinggi);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
                 index++;
               }
               if(muda == 1 && bptinggi == 1 && kolnormal == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 1 && stress == 1){
-                rules[index] = Math.min(usiaMuda, bpTinggi, cholNormal, gdTinggi);
+                rules[index] = Math.max(usiaMuda, bpTinggi, cholNormal, gdTinggi);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
@@ -704,21 +708,21 @@ const Tab3: React.FC = () => {
             //Diabetes Tidak
               //Stress
               if(muda == 1 && bptinggi == 1 && kolnormal == 1 && gdtinggi == 1 && smoker == 1 && diabetes == 0 && stress == 0){
-                rules[index] = Math.min(usiaMuda, bpTinggi, cholNormal, gdTinggi);
+                rules[index] = Math.max(usiaMuda, bpTinggi, cholNormal, gdTinggi);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
                 index++;
               }
               if(muda == 1 && bptinggi == 1 && kolnormal == 1 && gdtinggi == 1 && smoker == 1 && diabetes == 0 && stress == 0.5){
-                rules[index] = Math.min(usiaMuda, bpTinggi, cholNormal, gdTinggi);
+                rules[index] = Math.max(usiaMuda, bpTinggi, cholNormal, gdTinggi);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
                 index++;
               }
               if(muda == 1 && bptinggi == 1 && kolnormal == 1 && gdtinggi == 1 && smoker == 1 && diabetes == 0 && stress == 1){
-                rules[index] = Math.min(usiaMuda, bpTinggi, cholNormal, gdTinggi);
+                rules[index] = Math.max(usiaMuda, bpTinggi, cholNormal, gdTinggi);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
@@ -727,7 +731,7 @@ const Tab3: React.FC = () => {
           //Diabetes punya
             //Stress
             if(muda == 1 && bptinggi == 1 && kolnormal == 1 && gdtinggi == 1 && smoker == 1 && diabetes == 1 && stress == 0){
-              rules[index] = Math.min(usiaMuda, bpTinggi, cholNormal, gdTinggi);
+              rules[index] = Math.max(usiaMuda, bpTinggi, cholNormal, gdTinggi);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
@@ -753,21 +757,21 @@ const Tab3: React.FC = () => {
               //Diabetes Tidak
                 //Stress
                 if(muda == 1 && bptinggi == 1 && koltinggi == 1 && gdnormal == 1 && smoker == 0 && diabetes == 0 && stress == 0){
-                  rules[index] = Math.min(usiaMuda, bpTinggi, cholTinggi, gdNormal);
+                  rules[index] = Math.max(usiaMuda, bpTinggi, cholTinggi, gdNormal);
                   risk = 1-rules[index];
                   hasil[index] = "Kecil";
                   total += risk;
                   index++;
                 }
                 if(muda == 1 && bptinggi == 1 && koltinggi == 1 && gdnormal == 1 && smoker == 0 && diabetes == 0 && stress == 0.5){
-                  rules[index] = Math.min(usiaMuda, bpTinggi, cholTinggi, gdNormal);
+                  rules[index] = Math.max(usiaMuda, bpTinggi, cholTinggi, gdNormal);
                   risk = 1-rules[index];
                   hasil[index] = "Kecil";
                   total += risk;
                   index++;
                 }
                 if(muda == 1 && bptinggi == 1 && koltinggi == 1 && gdnormal == 1 && smoker == 0 && diabetes == 0 && stress == 1){
-                  rules[index] = Math.min(usiaMuda, bpTinggi, cholTinggi, gdNormal);
+                  rules[index] = Math.max(usiaMuda, bpTinggi, cholTinggi, gdNormal);
                   risk = 1-rules[index];
                   hasil[index] = "Kecil";
                   total += risk;
@@ -776,21 +780,21 @@ const Tab3: React.FC = () => {
             //Diabetes punya
               //Stress
               if(muda == 1 && bptinggi == 1 && koltinggi == 1 && gdnormal == 1 && smoker == 0 && diabetes == 1 && stress == 0){
-                rules[index] = Math.min(usiaMuda, bpTinggi, cholTinggi, gdNormal);
+                rules[index] = Math.max(usiaMuda, bpTinggi, cholTinggi, gdNormal);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
                 index++;
               }
               if(muda == 1 && bptinggi == 1 && koltinggi == 1 && gdnormal == 1 && smoker == 0 && diabetes == 1 && stress == 0.5){
-                rules[index] = Math.min(usiaMuda, bpTinggi, cholTinggi, gdNormal);
+                rules[index] = Math.max(usiaMuda, bpTinggi, cholTinggi, gdNormal);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
                 index++;
               }
               if(muda == 1 && bptinggi == 1 && koltinggi == 1 && gdnormal == 1 && smoker == 0 && diabetes == 1 && stress == 1){
-                rules[index] = Math.min(usiaMuda, bpTinggi, cholTinggi, gdNormal);
+                rules[index] = Math.max(usiaMuda, bpTinggi, cholTinggi, gdNormal);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
@@ -800,21 +804,21 @@ const Tab3: React.FC = () => {
             //Diabetes Tidak
               //Stress
               if(muda == 1 && bptinggi == 1 && koltinggi == 1 && gdnormal == 1 && smoker == 1 && diabetes == 0 && stress == 0){
-                rules[index] = Math.min(usiaMuda, bpTinggi, cholTinggi, gdNormal);
+                rules[index] = Math.max(usiaMuda, bpTinggi, cholTinggi, gdNormal);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
                 index++;
               }
               if(muda == 1 && bptinggi == 1 && koltinggi == 1 && gdnormal == 1 && smoker == 1 && diabetes == 0 && stress == 0.5){
-                rules[index] = Math.min(usiaMuda, bpTinggi, cholTinggi, gdNormal);
+                rules[index] = Math.max(usiaMuda, bpTinggi, cholTinggi, gdNormal);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
                 index++;
               }
               if(muda == 1 && bptinggi == 1 && koltinggi == 1 && gdnormal == 1 && smoker == 1 && diabetes == 0 && stress == 1){
-                rules[index] = Math.min(usiaMuda, bpTinggi, cholTinggi, gdNormal);
+                rules[index] = Math.max(usiaMuda, bpTinggi, cholTinggi, gdNormal);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
@@ -823,7 +827,7 @@ const Tab3: React.FC = () => {
           //Diabetes punya
             //Stress
             if(muda == 1 && bptinggi == 1 && koltinggi == 1 && gdnormal == 1 && smoker == 1 && diabetes == 1 && stress == 0){
-              rules[index] = Math.min(usiaMuda, bpTinggi, cholTinggi, gdNormal);
+              rules[index] = Math.max(usiaMuda, bpTinggi, cholTinggi, gdNormal);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
@@ -848,21 +852,21 @@ const Tab3: React.FC = () => {
             //Diabetes Tidak
               //Stress
               if(muda == 1 && bptinggi == 1 && koltinggi == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 0 && stress == 0){
-                rules[index] = Math.min(usiaMuda, bpTinggi, cholTinggi, gdTinggi);
+                rules[index] = Math.max(usiaMuda, bpTinggi, cholTinggi, gdTinggi);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
                 index++;
               }
               if(muda == 1 && bptinggi == 1 && koltinggi == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 0 && stress == 0.5){
-                rules[index] = Math.min(usiaMuda, bpTinggi, cholTinggi, gdTinggi);
+                rules[index] = Math.max(usiaMuda, bpTinggi, cholTinggi, gdTinggi);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
                 index++;
               }
               if(muda == 1 && bptinggi == 1 && koltinggi == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 0 && stress == 1){
-                rules[index] = Math.min(usiaMuda, bpTinggi, cholTinggi, gdTinggi);
+                rules[index] = Math.max(usiaMuda, bpTinggi, cholTinggi, gdTinggi);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
@@ -871,21 +875,21 @@ const Tab3: React.FC = () => {
           //Diabetes punya
             //Stress
             if(muda == 1 && bptinggi == 1 && koltinggi == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 1 && stress == 0){
-              rules[index] = Math.min(usiaMuda, bpTinggi, cholTinggi, gdTinggi);
+              rules[index] = Math.max(usiaMuda, bpTinggi, cholTinggi, gdTinggi);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
               index++;
             }
             if(muda == 1 && bptinggi == 1 && koltinggi == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 1 && stress == 0.5){
-              rules[index] = Math.min(usiaMuda, bpTinggi, cholTinggi, gdTinggi);
+              rules[index] = Math.max(usiaMuda, bpTinggi, cholTinggi, gdTinggi);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
               index++;
             }
             if(muda == 1 && bptinggi == 1 && koltinggi == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 1 && stress == 1){
-              rules[index] = Math.min(usiaMuda, bpTinggi, cholTinggi, gdTinggi);
+              rules[index] = Math.max(usiaMuda, bpTinggi, cholTinggi, gdTinggi);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
@@ -895,21 +899,21 @@ const Tab3: React.FC = () => {
           //Diabetes Tidak
             //Stress
             if(muda == 1 && bptinggi == 1 && koltinggi == 1 && gdtinggi == 1 && smoker == 1 && diabetes == 0 && stress == 0){
-              rules[index] = Math.min(usiaMuda, bpTinggi, cholTinggi, gdTinggi);
+              rules[index] = Math.max(usiaMuda, bpTinggi, cholTinggi, gdTinggi);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
               index++;
             }
             if(muda == 1 && bptinggi == 1 && koltinggi == 1 && gdtinggi == 1 && smoker == 1 && diabetes == 0 && stress == 0.5){
-              rules[index] = Math.min(usiaMuda, bpTinggi, cholTinggi, gdTinggi);
+              rules[index] = Math.max(usiaMuda, bpTinggi, cholTinggi, gdTinggi);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
               index++;
             }
             if(muda == 1 && bptinggi == 1 && koltinggi == 1 && gdtinggi == 1 && smoker == 1 && diabetes == 0 && stress == 1){
-              rules[index] = Math.min(usiaMuda, bpTinggi, cholTinggi, gdTinggi);
+              rules[index] = Math.max(usiaMuda, bpTinggi, cholTinggi, gdTinggi);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
@@ -918,7 +922,7 @@ const Tab3: React.FC = () => {
         //Diabetes punya
           //Stress
           if(muda == 1 && bptinggi == 1 && koltinggi == 1 && gdtinggi == 1 && smoker == 1 && diabetes == 1 && stress == 0){
-            rules[index] = Math.min(usiaMuda, bpTinggi, cholTinggi, gdTinggi);
+            rules[index] = Math.max(usiaMuda, bpTinggi, cholTinggi, gdTinggi);
             risk = 1-rules[index];
             hasil[index] = "Kecil";
             total += risk;
@@ -946,21 +950,21 @@ const Tab3: React.FC = () => {
               //Diabetes Tidak
                 //Stress
                 if(tua == 1 && bpnormal == 1 && kolnormal == 1 && gdnormal == 1 && smoker == 0 && diabetes == 0 && stress == 0){
-                  rules[index] = Math.min(usiaTua, bpNormal, cholNormal, gdNormal);
+                  rules[index] = Math.max(usiaTua, bpNormal, cholNormal, gdNormal);
                   risk = 1-rules[index];
                   hasil[index] = "Kecil";
                   total += risk;
                   index++;
                 }
                 if(tua == 1 && bpnormal == 1 && kolnormal == 1 && gdnormal == 1 && smoker == 0 && diabetes == 0 && stress == 0.5){
-                  rules[index] = Math.min(usiaTua, bpNormal, cholNormal, gdNormal);
+                  rules[index] = Math.max(usiaTua, bpNormal, cholNormal, gdNormal);
                   risk = 1-rules[index];
                   hasil[index] = "Kecil";
                   total += risk;
                   index++;
                 }
                 if(tua == 1 && bpnormal == 1 && kolnormal == 1 && gdnormal == 1 && smoker == 0 && diabetes == 0 && stress == 1){
-                  rules[index] = Math.min(usiaTua, bpNormal, cholNormal, gdNormal);
+                  rules[index] = Math.max(usiaTua, bpNormal, cholNormal, gdNormal);
                   risk = 1-rules[index];
                   hasil[index] = "Kecil";
                   total += risk;
@@ -969,21 +973,21 @@ const Tab3: React.FC = () => {
             //Diabetes punya
               //Stress
               if(tua == 1 && bpnormal == 1 && kolnormal == 1 && gdnormal == 1 && smoker == 0 && diabetes == 1 && stress == 0){
-                rules[index] = Math.min(usiaTua, bpNormal, cholNormal, gdNormal);
+                rules[index] = Math.max(usiaTua, bpNormal, cholNormal, gdNormal);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
                 index++;
               }
               if(tua == 1 && bpnormal == 1 && kolnormal == 1 && gdnormal == 1 && smoker == 0 && diabetes == 1 && stress == 0.5){
-                rules[index] = Math.min(usiaTua, bpNormal, cholNormal, gdNormal);
+                rules[index] = Math.max(usiaTua, bpNormal, cholNormal, gdNormal);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
                 index++;
               }
               if(tua == 1 && bpnormal == 1 && kolnormal == 1 && gdnormal == 1 && smoker == 0 && diabetes == 1 && stress == 1){
-                rules[index] = Math.min(usiaTua, bpNormal, cholNormal, gdNormal);
+                rules[index] = Math.max(usiaTua, bpNormal, cholNormal, gdNormal);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
@@ -993,21 +997,21 @@ const Tab3: React.FC = () => {
             //Diabetes Tidak
               //Stress
               if(tua == 1 && bpnormal == 1 && kolnormal == 1 && gdnormal == 1 && smoker == 1 && diabetes == 0 && stress == 0){
-                rules[index] = Math.min(usiaTua, bpNormal, cholNormal, gdNormal);
+                rules[index] = Math.max(usiaTua, bpNormal, cholNormal, gdNormal);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
                 index++;
               }
               if(tua == 1 && bpnormal == 1 && kolnormal == 1 && gdnormal == 1 && smoker == 1 && diabetes == 0 && stress == 0.5){
-                rules[index] = Math.min(usiaTua, bpNormal, cholNormal, gdNormal);
+                rules[index] = Math.max(usiaTua, bpNormal, cholNormal, gdNormal);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
                 index++;
               }
               if(tua == 1 && bpnormal == 1 && kolnormal == 1 && gdnormal == 1 && smoker == 1 && diabetes == 0 && stress == 1){
-                rules[index] = Math.min(usiaTua, bpNormal, cholNormal, gdNormal);
+                rules[index] = Math.max(usiaTua, bpNormal, cholNormal, gdNormal);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
@@ -1016,7 +1020,7 @@ const Tab3: React.FC = () => {
           //Diabetes punya
             //Stress
             if(tua == 1 && bpnormal == 1 && kolnormal == 1 && gdnormal == 1 && smoker == 1 && diabetes == 1 && stress == 0){
-              rules[index] = Math.min(usiaTua, bpNormal, cholNormal, gdNormal);
+              rules[index] = Math.max(usiaTua, bpNormal, cholNormal, gdNormal);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
@@ -1041,21 +1045,21 @@ const Tab3: React.FC = () => {
             //Diabetes Tidak
               //Stress
               if(tua == 1 && bpnormal == 1 && kolnormal == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 0 && stress == 0){
-                rules[index] = Math.min(usiaTua, bpNormal, cholNormal, gdTinggi);
+                rules[index] = Math.max(usiaTua, bpNormal, cholNormal, gdTinggi);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
                 index++;
               }
               if(tua == 1 && bpnormal == 1 && kolnormal == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 0 && stress == 0.5){
-                rules[index] = Math.min(usiaTua, bpNormal, cholNormal, gdTinggi);
+                rules[index] = Math.max(usiaTua, bpNormal, cholNormal, gdTinggi);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
                 index++;
               }
               if(tua == 1 && bpnormal == 1 && kolnormal == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 0 && stress == 1){
-                rules[index] = Math.min(usiaTua, bpNormal, cholNormal, gdTinggi);
+                rules[index] = Math.max(usiaTua, bpNormal, cholNormal, gdTinggi);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
@@ -1064,21 +1068,21 @@ const Tab3: React.FC = () => {
           //Diabetes punya
             //Stress
             if(tua == 1 && bpnormal == 1 && kolnormal == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 1 && stress == 0){
-              rules[index] = Math.min(usiaTua, bpNormal, cholNormal, gdTinggi);
+              rules[index] = Math.max(usiaTua, bpNormal, cholNormal, gdTinggi);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
               index++;
             }
             if(tua == 1 && bpnormal == 1 && kolnormal == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 1 && stress == 0.5){
-              rules[index] = Math.min(usiaTua, bpNormal, cholNormal, gdTinggi);
+              rules[index] = Math.max(usiaTua, bpNormal, cholNormal, gdTinggi);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
               index++;
             }
             if(tua == 1 && bpnormal == 1 && kolnormal == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 1 && stress == 1){
-              rules[index] = Math.min(usiaTua, bpNormal, cholNormal, gdTinggi);
+              rules[index] = Math.max(usiaTua, bpNormal, cholNormal, gdTinggi);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
@@ -1088,21 +1092,21 @@ const Tab3: React.FC = () => {
           //Diabetes Tidak
             //Stress
             if(tua == 1 && bpnormal == 1 && kolnormal == 1 && gdtinggi == 1 && smoker == 1 && diabetes == 0 && stress == 0){
-              rules[index] = Math.min(usiaTua, bpNormal, cholNormal, gdTinggi);
+              rules[index] = Math.max(usiaTua, bpNormal, cholNormal, gdTinggi);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
               index++;
             }
             if(tua == 1 && bpnormal == 1 && kolnormal == 1 && gdtinggi == 1 && smoker == 1 && diabetes == 0 && stress == 0.5){
-              rules[index] = Math.min(usiaTua, bpNormal, cholNormal, gdTinggi);
+              rules[index] = Math.max(usiaTua, bpNormal, cholNormal, gdTinggi);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
               index++;
             }
             if(tua == 1 && bpnormal == 1 && kolnormal == 1 && gdtinggi == 1 && smoker == 1 && diabetes == 0 && stress == 1){
-              rules[index] = Math.min(usiaTua, bpNormal, cholNormal, gdTinggi);
+              rules[index] = Math.max(usiaTua, bpNormal, cholNormal, gdTinggi);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
@@ -1111,7 +1115,7 @@ const Tab3: React.FC = () => {
         //Diabetes punya
           //Stress
           if(tua == 1 && bpnormal == 1 && kolnormal == 1 && gdtinggi == 1 && smoker == 1 && diabetes == 1 && stress == 0){
-            rules[index] = Math.min(usiaTua, bpNormal, cholNormal, gdTinggi);
+            rules[index] = Math.max(usiaTua, bpNormal, cholNormal, gdTinggi);
             risk = 1-rules[index];
             hasil[index] = "Kecil";
             total += risk;
@@ -1137,21 +1141,21 @@ const Tab3: React.FC = () => {
             //Diabetes Tidak
               //Stress
               if(tua == 1 && bpnormal == 1 && koltinggi == 1 && gdnormal == 1 && smoker == 0 && diabetes == 0 && stress == 0){
-                rules[index] = Math.min(usiaTua, bpNormal, cholTinggi, gdNormal);
+                rules[index] = Math.max(usiaTua, bpNormal, cholTinggi, gdNormal);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
                 index++;
               }
               if(tua == 1 && bpnormal == 1 && koltinggi == 1 && gdnormal == 1 && smoker == 0 && diabetes == 0 && stress == 0.5){
-                rules[index] = Math.min(usiaTua, bpNormal, cholTinggi, gdNormal);
+                rules[index] = Math.max(usiaTua, bpNormal, cholTinggi, gdNormal);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
                 index++;
               }
               if(tua == 1 && bpnormal == 1 && koltinggi == 1 && gdnormal == 1 && smoker == 0 && diabetes == 0 && stress == 1){
-                rules[index] = Math.min(usiaTua, bpNormal, cholTinggi, gdNormal);
+                rules[index] = Math.max(usiaTua, bpNormal, cholTinggi, gdNormal);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
@@ -1160,21 +1164,21 @@ const Tab3: React.FC = () => {
           //Diabetes punya
             //Stress
             if(tua == 1 && bpnormal == 1 && koltinggi == 1 && gdnormal == 1 && smoker == 0 && diabetes == 1 && stress == 0){
-              rules[index] = Math.min(usiaTua, bpNormal, cholTinggi, gdNormal);
+              rules[index] = Math.max(usiaTua, bpNormal, cholTinggi, gdNormal);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
               index++;
             }
             if(tua == 1 && bpnormal == 1 && koltinggi == 1 && gdnormal == 1 && smoker == 0 && diabetes == 1 && stress == 0.5){
-              rules[index] = Math.min(usiaTua, bpNormal, cholTinggi, gdNormal);
+              rules[index] = Math.max(usiaTua, bpNormal, cholTinggi, gdNormal);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
               index++;
             }
             if(tua == 1 && bpnormal == 1 && koltinggi == 1 && gdnormal == 1 && smoker == 0 && diabetes == 1 && stress == 1){
-              rules[index] = Math.min(usiaTua, bpNormal, cholTinggi, gdNormal);
+              rules[index] = Math.max(usiaTua, bpNormal, cholTinggi, gdNormal);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
@@ -1184,21 +1188,21 @@ const Tab3: React.FC = () => {
           //Diabetes Tidak
             //Stress
             if(tua == 1 && bpnormal == 1 && koltinggi == 1 && gdnormal == 1 && smoker == 1 && diabetes == 0 && stress == 0){
-              rules[index] = Math.min(usiaTua, bpNormal, cholTinggi, gdNormal);
+              rules[index] = Math.max(usiaTua, bpNormal, cholTinggi, gdNormal);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
               index++;
             }
             if(tua == 1 && bpnormal == 1 && koltinggi == 1 && gdnormal == 1 && smoker == 1 && diabetes == 0 && stress == 0.5){
-              rules[index] = Math.min(usiaTua, bpNormal, cholTinggi, gdNormal);
+              rules[index] = Math.max(usiaTua, bpNormal, cholTinggi, gdNormal);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
               index++;
             }
             if(tua == 1 && bpnormal == 1 && koltinggi == 1 && gdnormal == 1 && smoker == 1 && diabetes == 0 && stress == 1){
-              rules[index] = Math.min(usiaTua, bpNormal, cholTinggi, gdNormal);
+              rules[index] = Math.max(usiaTua, bpNormal, cholTinggi, gdNormal);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
@@ -1207,7 +1211,7 @@ const Tab3: React.FC = () => {
         //Diabetes punya
           //Stress
           if(tua == 1 && bpnormal == 1 && koltinggi == 1 && gdnormal == 1 && smoker == 1 && diabetes == 1 && stress == 0){
-            rules[index] = Math.min(usiaTua, bpNormal, cholTinggi, gdNormal);
+            rules[index] = Math.max(usiaTua, bpNormal, cholTinggi, gdNormal);
             risk = 1-rules[index];
             hasil[index] = "Kecil";
             total += risk;
@@ -1232,21 +1236,21 @@ const Tab3: React.FC = () => {
           //Diabetes Tidak
             //Stress
             if(tua == 1 && bpnormal == 1 && koltinggi == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 0 && stress == 0){
-              rules[index] = Math.min(usiaTua, bpNormal, cholTinggi, gdTinggi);
+              rules[index] = Math.max(usiaTua, bpNormal, cholTinggi, gdTinggi);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
               index++;
             }
             if(tua == 1 && bpnormal == 1 && koltinggi == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 0 && stress == 0.5){
-              rules[index] = Math.min(usiaTua, bpNormal, cholTinggi, gdTinggi);
+              rules[index] = Math.max(usiaTua, bpNormal, cholTinggi, gdTinggi);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
               index++;
             }
             if(tua == 1 && bpnormal == 1 && koltinggi == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 0 && stress == 1){
-              rules[index] = Math.min(usiaTua, bpNormal, cholTinggi, gdTinggi);
+              rules[index] = Math.max(usiaTua, bpNormal, cholTinggi, gdTinggi);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
@@ -1255,21 +1259,21 @@ const Tab3: React.FC = () => {
         //Diabetes punya
           //Stress
           if(tua == 1 && bpnormal == 1 && koltinggi == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 1 && stress == 0){
-            rules[index] = Math.min(usiaTua, bpNormal, cholTinggi, gdTinggi);
+            rules[index] = Math.max(usiaTua, bpNormal, cholTinggi, gdTinggi);
             risk = 1-rules[index];
             hasil[index] = "Kecil";
             total += risk;
             index++;
           }
           if(tua == 1 && bpnormal == 1 && koltinggi == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 1 && stress == 0.5){
-            rules[index] = Math.min(usiaTua, bpNormal, cholTinggi, gdTinggi);
+            rules[index] = Math.max(usiaTua, bpNormal, cholTinggi, gdTinggi);
             risk = 1-rules[index];
             hasil[index] = "Kecil";
             total += risk;
             index++;
           }
           if(tua == 1 && bpnormal == 1 && koltinggi == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 1 && stress == 1){
-            rules[index] = Math.min(usiaTua, bpNormal, cholTinggi, gdTinggi);
+            rules[index] = Math.max(usiaTua, bpNormal, cholTinggi, gdTinggi);
             risk = 1-rules[index];
             hasil[index] = "Kecil";
             total += risk;
@@ -1279,21 +1283,21 @@ const Tab3: React.FC = () => {
         //Diabetes Tidak
           //Stress
           if(tua == 1 && bpnormal == 1 && koltinggi == 1 && gdtinggi == 1 && smoker == 1 && diabetes == 0 && stress == 0){
-            rules[index] = Math.min(usiaTua, bpNormal, cholTinggi, gdTinggi);
+            rules[index] = Math.max(usiaTua, bpNormal, cholTinggi, gdTinggi);
             risk = 1-rules[index];
             hasil[index] = "Kecil";
             total += risk;
             index++;
           }
           if(tua == 1 && bpnormal == 1 && koltinggi == 1 && gdtinggi == 1 && smoker == 1 && diabetes == 0 && stress == 0.5){
-            rules[index] = Math.min(usiaTua, bpNormal, cholTinggi, gdTinggi);
+            rules[index] = Math.max(usiaTua, bpNormal, cholTinggi, gdTinggi);
             risk = 1-rules[index];
             hasil[index] = "Kecil";
             total += risk;
             index++;
           }
           if(tua == 1 && bpnormal == 1 && koltinggi == 1 && gdtinggi == 1 && smoker == 1 && diabetes == 0 && stress == 1){
-            rules[index] = Math.min(usiaTua, bpNormal, cholTinggi, gdTinggi);
+            rules[index] = Math.max(usiaTua, bpNormal, cholTinggi, gdTinggi);
             risk = 1-rules[index];
             hasil[index] = "Kecil";
             total += risk;
@@ -1302,7 +1306,7 @@ const Tab3: React.FC = () => {
       //Diabetes punya
         //Stress
         if(tua == 1 && bpnormal == 1 && koltinggi == 1 && gdtinggi == 1 && smoker == 1 && diabetes == 1 && stress == 0){
-          rules[index] = Math.min(usiaTua, bpNormal, cholTinggi, gdTinggi);
+          rules[index] = Math.max(usiaTua, bpNormal, cholTinggi, gdTinggi);
           risk = 1-rules[index];
           hasil[index] = "Kecil";
           total += risk;
@@ -1329,21 +1333,21 @@ const Tab3: React.FC = () => {
             //Diabetes Tidak
               //Stress
                 if(tua == 1 && bptinggi == 1 && kolnormal == 1 && gdnormal == 1 && smoker == 0 && diabetes == 0 && stress == 0){
-                  rules[index] = Math.min(usiaTua, bpTinggi, cholNormal, gdNormal);
+                  rules[index] = Math.max(usiaTua, bpTinggi, cholNormal, gdNormal);
                   risk = 1-rules[index];
                   hasil[index] = "Kecil";
                   total += risk;
                   index++;
                 }
                 if(tua == 1 && bptinggi == 1 && kolnormal == 1 && gdnormal == 1 && smoker == 0 && diabetes == 0 && stress == 0.5){
-                  rules[index] = Math.min(usiaTua, bpTinggi, cholNormal, gdNormal);
+                  rules[index] = Math.max(usiaTua, bpTinggi, cholNormal, gdNormal);
                   risk = 1-rules[index];
                   hasil[index] = "Kecil";
                   total += risk;
                   index++;
                 }
                 if(tua == 1 && bptinggi == 1 && kolnormal == 1 && gdnormal == 1 && smoker == 0 && diabetes == 0 && stress == 1){
-                  rules[index] = Math.min(usiaTua, bpTinggi, cholNormal, gdNormal);
+                  rules[index] = Math.max(usiaTua, bpTinggi, cholNormal, gdNormal);
                   risk = 1-rules[index];
                   hasil[index] = "Kecil";
                   total += risk;
@@ -1352,21 +1356,21 @@ const Tab3: React.FC = () => {
             //Diabetes punya
               //Stress
               if(tua == 1 && bptinggi == 1 && kolnormal == 1 && gdnormal == 1 && smoker == 0 && diabetes == 1 && stress == 0){
-                rules[index] = Math.min(usiaTua, bpTinggi, cholNormal, gdNormal);
+                rules[index] = Math.max(usiaTua, bpTinggi, cholNormal, gdNormal);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
                 index++;
               }
               if(tua == 1 && bptinggi == 1 && kolnormal == 1 && gdnormal == 1 && smoker == 0 && diabetes == 1 && stress == 0.5){
-                rules[index] = Math.min(usiaTua, bpTinggi, cholNormal, gdNormal);
+                rules[index] = Math.max(usiaTua, bpTinggi, cholNormal, gdNormal);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
                 index++;
               }
               if(tua == 1 && bptinggi == 1 && kolnormal == 1 && gdnormal == 1 && smoker == 0 && diabetes == 1 && stress == 1){
-                rules[index] = Math.min(usiaTua, bpTinggi, cholNormal, gdNormal);
+                rules[index] = Math.max(usiaTua, bpTinggi, cholNormal, gdNormal);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
@@ -1376,21 +1380,21 @@ const Tab3: React.FC = () => {
             //Diabetes Tidak
               //Stress
               if(tua == 1 && bptinggi == 1 && kolnormal == 1 && gdnormal == 1 && smoker == 1 && diabetes == 0 && stress == 0){
-                rules[index] = Math.min(usiaTua, bpTinggi, cholNormal, gdNormal);
+                rules[index] = Math.max(usiaTua, bpTinggi, cholNormal, gdNormal);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
                 index++;
               }
               if(tua == 1 && bptinggi == 1 && kolnormal == 1 && gdnormal == 1 && smoker == 1 && diabetes == 0 && stress == 0.5){
-                rules[index] = Math.min(usiaTua, bpTinggi, cholNormal, gdNormal);
+                rules[index] = Math.max(usiaTua, bpTinggi, cholNormal, gdNormal);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
                 index++;
               }
               if(tua == 1 && bptinggi == 1 && kolnormal == 1 && gdnormal == 1 && smoker == 1 && diabetes == 0 && stress == 1){
-                rules[index] = Math.min(usiaTua, bpTinggi, cholNormal, gdNormal);
+                rules[index] = Math.max(usiaTua, bpTinggi, cholNormal, gdNormal);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
@@ -1399,7 +1403,7 @@ const Tab3: React.FC = () => {
           //Diabetes punya
             //Stress
             if(tua == 1 && bptinggi == 1 && kolnormal == 1 && gdnormal == 1 && smoker == 1 && diabetes == 1 && stress == 0){
-              rules[index] = Math.min(usiaTua, bpTinggi, cholNormal, gdNormal);
+              rules[index] = Math.max(usiaTua, bpTinggi, cholNormal, gdNormal);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
@@ -1424,21 +1428,21 @@ const Tab3: React.FC = () => {
             //Diabetes Tidak
               //Stress
               if(tua == 1 && bptinggi == 1 && kolnormal == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 0 && stress == 0){
-                rules[index] = Math.min(usiaTua, bpTinggi, cholNormal, gdTinggi);
+                rules[index] = Math.max(usiaTua, bpTinggi, cholNormal, gdTinggi);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
                 index++;
               }
               if(tua == 1 && bptinggi == 1 && kolnormal == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 0 && stress == 0.5){
-                rules[index] = Math.min(usiaTua, bpTinggi, cholNormal, gdTinggi);
+                rules[index] = Math.max(usiaTua, bpTinggi, cholNormal, gdTinggi);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
                 index++;
               }
               if(tua == 1 && bptinggi == 1 && kolnormal == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 0 && stress == 1){
-                rules[index] = Math.min(usiaTua, bpTinggi, cholNormal, gdTinggi);
+                rules[index] = Math.max(usiaTua, bpTinggi, cholNormal, gdTinggi);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
@@ -1447,21 +1451,21 @@ const Tab3: React.FC = () => {
           //Diabetes punya
             //Stress
             if(tua == 1 && bptinggi == 1 && kolnormal == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 1 && stress == 0){
-              rules[index] = Math.min(usiaTua, bpTinggi, cholNormal, gdTinggi);
+              rules[index] = Math.max(usiaTua, bpTinggi, cholNormal, gdTinggi);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
               index++;
             }
             if(tua == 1 && bptinggi == 1 && kolnormal == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 1 && stress == 0.5){
-              rules[index] = Math.min(usiaTua, bpTinggi, cholNormal, gdTinggi);
+              rules[index] = Math.max(usiaTua, bpTinggi, cholNormal, gdTinggi);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
               index++;
             }
             if(tua == 1 && bptinggi == 1 && kolnormal == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 1 && stress == 1){
-              rules[index] = Math.min(usiaTua, bpTinggi, cholNormal, gdTinggi);
+              rules[index] = Math.max(usiaTua, bpTinggi, cholNormal, gdTinggi);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
@@ -1471,21 +1475,21 @@ const Tab3: React.FC = () => {
           //Diabetes Tidak
             //Stress
             if(tua == 1 && bptinggi == 1 && kolnormal == 1 && gdtinggi == 1 && smoker == 1 && diabetes == 0 && stress == 0){
-              rules[index] = Math.min(usiaTua, bpTinggi, cholNormal, gdTinggi);
+              rules[index] = Math.max(usiaTua, bpTinggi, cholNormal, gdTinggi);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
               index++;
             }
             if(tua == 1 && bptinggi == 1 && kolnormal == 1 && gdtinggi == 1 && smoker == 1 && diabetes == 0 && stress == 0.5){
-              rules[index] = Math.min(usiaTua, bpTinggi, cholNormal, gdTinggi);
+              rules[index] = Math.max(usiaTua, bpTinggi, cholNormal, gdTinggi);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
               index++;
             }
             if(tua == 1 && bptinggi == 1 && kolnormal == 1 && gdtinggi == 1 && smoker == 1 && diabetes == 0 && stress == 1){
-              rules[index] = Math.min(usiaTua, bpTinggi, cholNormal, gdTinggi);
+              rules[index] = Math.max(usiaTua, bpTinggi, cholNormal, gdTinggi);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
@@ -1494,7 +1498,7 @@ const Tab3: React.FC = () => {
         //Diabetes punya
           //Stress
           if(tua == 1 && bptinggi == 1 && kolnormal == 1 && gdtinggi == 1 && smoker == 1 && diabetes == 1 && stress == 0){
-            rules[index] = Math.min(usiaTua, bpTinggi, cholNormal, gdTinggi);
+            rules[index] = Math.max(usiaTua, bpTinggi, cholNormal, gdTinggi);
             risk = 1-rules[index];
             hasil[index] = "Kecil";
             total += risk;
@@ -1520,21 +1524,21 @@ const Tab3: React.FC = () => {
             //Diabetes Tidak
               //Stress
               if(tua == 1 && bptinggi == 1 && koltinggi == 1 && gdnormal == 1 && smoker == 0 && diabetes == 0 && stress == 0){
-                rules[index] = Math.min(usiaTua, bpTinggi, cholTinggi, gdNormal);
+                rules[index] = Math.max(usiaTua, bpTinggi, cholTinggi, gdNormal);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
                 index++;
               }
               if(tua == 1 && bptinggi == 1 && koltinggi == 1 && gdnormal == 1 && smoker == 0 && diabetes == 0 && stress == 0.5){
-                rules[index] = Math.min(usiaTua, bpTinggi, cholTinggi, gdNormal);
+                rules[index] = Math.max(usiaTua, bpTinggi, cholTinggi, gdNormal);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
                 index++;
               }
               if(tua == 1 && bptinggi == 1 && koltinggi == 1 && gdnormal == 1 && smoker == 0 && diabetes == 0 && stress == 1){
-                rules[index] = Math.min(usiaTua, bpTinggi, cholTinggi, gdNormal);
+                rules[index] = Math.max(usiaTua, bpTinggi, cholTinggi, gdNormal);
                 risk = 1-rules[index];
                 hasil[index] = "Kecil";
                 total += risk;
@@ -1543,21 +1547,21 @@ const Tab3: React.FC = () => {
           //Diabetes punya
             //Stress
             if(tua == 1 && bptinggi == 1 && koltinggi == 1 && gdnormal == 1 && smoker == 0 && diabetes == 1 && stress == 0){
-              rules[index] = Math.min(usiaTua, bpTinggi, cholTinggi, gdNormal);
+              rules[index] = Math.max(usiaTua, bpTinggi, cholTinggi, gdNormal);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
               index++;
             }
             if(tua == 1 && bptinggi == 1 && koltinggi == 1 && gdnormal == 1 && smoker == 0 && diabetes == 1 && stress == 0.5){
-              rules[index] = Math.min(usiaTua, bpTinggi, cholTinggi, gdNormal);
+              rules[index] = Math.max(usiaTua, bpTinggi, cholTinggi, gdNormal);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
               index++;
             }
             if(tua == 1 && bptinggi == 1 && koltinggi == 1 && gdnormal == 1 && smoker == 0 && diabetes == 1 && stress == 1){
-              rules[index] = Math.min(usiaTua, bpTinggi, cholTinggi, gdNormal);
+              rules[index] = Math.max(usiaTua, bpTinggi, cholTinggi, gdNormal);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
@@ -1567,21 +1571,21 @@ const Tab3: React.FC = () => {
           //Diabetes Tidak
             //Stress
             if(tua == 1 && bptinggi == 1 && koltinggi == 1 && gdnormal == 1 && smoker == 1 && diabetes == 0 && stress == 0){
-              rules[index] = Math.min(usiaTua, bpTinggi, cholTinggi, gdNormal);
+              rules[index] = Math.max(usiaTua, bpTinggi, cholTinggi, gdNormal);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
               index++;
             }
             if(tua == 1 && bptinggi == 1 && koltinggi == 1 && gdnormal == 1 && smoker == 1 && diabetes == 0 && stress == 0.5){
-              rules[index] = Math.min(usiaTua, bpTinggi, cholTinggi, gdNormal);
+              rules[index] = Math.max(usiaTua, bpTinggi, cholTinggi, gdNormal);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
               index++;
             }
             if(tua == 1 && bptinggi == 1 && koltinggi == 1 && gdnormal == 1 && smoker == 1 && diabetes == 0 && stress == 1){
-              rules[index] = Math.min(usiaTua, bpTinggi, cholTinggi, gdNormal);
+              rules[index] = Math.max(usiaTua, bpTinggi, cholTinggi, gdNormal);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
@@ -1590,7 +1594,7 @@ const Tab3: React.FC = () => {
         //Diabetes punya
           //Stress
           if(tua == 1 && bptinggi == 1 && koltinggi == 1 && gdnormal == 1 && smoker == 1 && diabetes == 1 && stress == 0){
-            rules[index] = Math.min(usiaTua, bpTinggi, cholTinggi, gdNormal);
+            rules[index] = Math.max(usiaTua, bpTinggi, cholTinggi, gdNormal);
             risk = 1-rules[index];
             hasil[index] = "Kecil";
             total += risk;
@@ -1615,21 +1619,21 @@ const Tab3: React.FC = () => {
           //Diabetes Tidak
             //Stress
             if(tua == 1 && bptinggi == 1 && koltinggi == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 0 && stress == 0){
-              rules[index] = Math.min(usiaTua, bpTinggi, cholTinggi, gdTinggi);
+              rules[index] = Math.max(usiaTua, bpTinggi, cholTinggi, gdTinggi);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
               index++;
             }
             if(tua == 1 && bptinggi == 1 && koltinggi == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 0 && stress == 0.5){
-              rules[index] = Math.min(usiaTua, bpTinggi, cholTinggi, gdTinggi);
+              rules[index] = Math.max(usiaTua, bpTinggi, cholTinggi, gdTinggi);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
               index++;
             }
             if(tua == 1 && bptinggi == 1 && koltinggi == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 0 && stress == 1){
-              rules[index] = Math.min(usiaTua, bpTinggi, cholTinggi, gdTinggi);
+              rules[index] = Math.max(usiaTua, bpTinggi, cholTinggi, gdTinggi);
               risk = 1-rules[index];
               hasil[index] = "Kecil";
               total += risk;
@@ -1638,21 +1642,21 @@ const Tab3: React.FC = () => {
         //Diabetes punya
           //Stress
           if(tua == 1 && bptinggi == 1 && koltinggi == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 1 && stress == 0){
-            rules[index] = Math.min(usiaTua, bpTinggi, cholTinggi, gdTinggi);
+            rules[index] = Math.max(usiaTua, bpTinggi, cholTinggi, gdTinggi);
             risk = 1-rules[index];
             hasil[index] = "Kecil";
             total += risk;
             index++;
           }
           if(tua == 1 && bptinggi == 1 && koltinggi == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 1 && stress == 0.5){
-            rules[index] = Math.min(usiaTua, bpTinggi, cholTinggi, gdTinggi);
+            rules[index] = Math.max(usiaTua, bpTinggi, cholTinggi, gdTinggi);
             risk = 1-rules[index];
             hasil[index] = "Kecil";
             total += risk;
             index++;
           }
           if(tua == 1 && bptinggi == 1 && koltinggi == 1 && gdtinggi == 1 && smoker == 0 && diabetes == 1 && stress == 1){
-            rules[index] = Math.min(usiaTua, bpTinggi, cholTinggi, gdTinggi);
+            rules[index] = Math.max(usiaTua, bpTinggi, cholTinggi, gdTinggi);
             risk = 1-rules[index];
             hasil[index] = "Kecil";
             total += risk;
@@ -1662,21 +1666,21 @@ const Tab3: React.FC = () => {
         //Diabetes Tidak
           //Stress
           if(tua == 1 && bptinggi == 1 && koltinggi == 1 && gdtinggi == 1 && smoker == 1 && diabetes == 0 && stress == 0){
-            rules[index] = Math.min(usiaTua, bpTinggi, cholTinggi, gdTinggi);
+            rules[index] = Math.max(usiaTua, bpTinggi, cholTinggi, gdTinggi);
             risk = 1-rules[index];
             hasil[index] = "Kecil";
             total += risk;
             index++;
           }
           if(tua == 1 && bptinggi == 1 && koltinggi == 1 && gdtinggi == 1 && smoker == 1 && diabetes == 0 && stress == 0.5){
-            rules[index] = Math.min(usiaTua, bpTinggi, cholTinggi, gdTinggi);
+            rules[index] = Math.max(usiaTua, bpTinggi, cholTinggi, gdTinggi);
             risk = 1-rules[index];
             hasil[index] = "Kecil";
             total += risk;
             index++;
           }
           if(tua == 1 && bptinggi == 1 && koltinggi == 1 && gdtinggi == 1 && smoker == 1 && diabetes == 0 && stress == 1){
-            rules[index] = Math.min(usiaTua, bpTinggi, cholTinggi, gdTinggi);
+            rules[index] = Math.max(usiaTua, bpTinggi, cholTinggi, gdTinggi);
             risk = 1-rules[index];
             hasil[index] = "Kecil";
             total += risk;
@@ -1685,7 +1689,7 @@ const Tab3: React.FC = () => {
       //Diabetes punya
         //Stress
         if(tua == 1 && bptinggi == 1 && koltinggi == 1 && gdtinggi == 1 && smoker == 1 && diabetes == 1 && stress == 0){
-          rules[index] = Math.min(usiaTua, bpTinggi, cholTinggi, gdTinggi);
+          rules[index] = Math.max(usiaTua, bpTinggi, cholTinggi, gdTinggi);
           risk = 1-rules[index];
           hasil[index] = "Kecil";
           total += risk;
@@ -1705,15 +1709,20 @@ const Tab3: React.FC = () => {
           total += risk;
           index++;
         }
-      // console.log(total);
-      // let totalRules = 0;
-      // for(var i = 0 ; i < index ; i++){
-      //   totalRules += rules[i];
-      // }
-      // console.log(totalRules);
-      // let riskTotal = 0;
-      // riskTotal = total / totalRules;
-      // console.log(riskTotal);
+
+      var totalRules = 0;
+      for(var i = 0 ; i < index ; i++){
+        totalRules = totalRules + rules[i];
+        console.log(rules[i]);
+        console.log(totalRules);
+      }
+
+      console.log("TotalRules" + totalRules);
+      console.log("Total" + total);
+      let riskTotal = 0;
+      riskTotal = total / totalRules;
+      console.log(total);
+
 
       let max = 0;
       let flag = 0;
@@ -1724,11 +1733,11 @@ const Tab3: React.FC = () => {
           flag = i;
         }
       }
-      setRisk(max);
+      setRisk(riskTotal);
       console.log(max);
       setDiagnosis(hasil[flag]);
-      
   }
+
   return (
     <IonPage>
       <IonHeader>
