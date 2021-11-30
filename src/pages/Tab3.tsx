@@ -1855,7 +1855,7 @@ const Tab3: React.FC = () => {
             </IonRow>
           </IonGrid>
           <IonRow>
-            {riskPoint != Infinity ?
+            {riskPoint !== Infinity ?
               <IonCol>
               <IonCard>
                 <IonCardContent className="ion-text-center">
