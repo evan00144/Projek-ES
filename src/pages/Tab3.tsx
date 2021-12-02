@@ -1739,15 +1739,13 @@ const Tab3: React.FC = () => {
     
       if(riskTotal > 0.5){
         setDiagnosis("Besar");
+        setRisk(riskTotal);
       }
       if(riskTotal <= 0.5){
         setDiagnosis("Kecil");
+        setRisk(1-riskTotal);
       }
     
-      setRisk(riskTotal);
-      console.log(max);
-    
-//       setDiagnosis(hasil[flag]);
   }
 
   return (
