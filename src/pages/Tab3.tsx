@@ -1727,18 +1727,27 @@ const Tab3: React.FC = () => {
       let max = 0;
       let flag = 0;
 
-      for(var i = 0; i < index; i++){
-        if(rules[i] >= 0){
-          max = rules[i];
-          flag = i;
-        }
-      }
+//       for(var i = 0; i < index; i++){
+//         if(rules[i] >= 0){
+//           max = rules[i];
+//           flag = i;
+//         }
+//       }
       if(hasil[flag] === "Kecil"){
          riskTotal = 1-riskTotal;
          }
+    
+      if(riskTotal > 0.5){
+        setDiagnosis("Besar");
+      }
+      if(riskTotal <= 0.5){
+        setDiagnosis("Kecil");
+      }
+    
       setRisk(riskTotal);
       console.log(max);
-      setDiagnosis(hasil[flag]);
+    
+//       setDiagnosis(hasil[flag]);
   }
 
   return (
